@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             val endTime = endTimeEditText.text.toString()
             val description = descriptionEditText.text.toString()
 
-          //  val userImage = categoryManager.selectImageForCategory(this, SELECT_IMAGE_REQUEST_CODE)
+            val userImage = categoryManager.selectImageForCategory(this, SELECT_IMAGE_REQUEST_CODE)
 
             if (date.isNotEmpty() && startTime.isNotEmpty() && endTime.isNotEmpty() && description.isNotEmpty()) {
                 val timesheetEntry = TimesheetEntry(date, startTime, endTime, description, imageUrl = null )
