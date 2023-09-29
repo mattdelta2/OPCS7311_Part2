@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -30,15 +31,20 @@ class Date : AppCompatActivity() {
         calculateButton = findViewById(R.id.calculateButton)
         totalTimeTextView = findViewById(R.id.totalTimeTextView)
 
-        backButton.setOnClickListener {
-            // Handle the back button click to return to the previous page
-            finish()
-        }
+
+        backButton.setOnClickListener{(back())}
 
         calculateButton.setOnClickListener {
             // Handle the calculate button click
             calculateTotalTime()
         }
+    }
+
+    private fun back()
+    {
+        val intent = Intent(this, MainMenu::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun calculateTotalTime() {
@@ -48,33 +54,33 @@ class Date : AppCompatActivity() {
         val endDate = endDateEditText.text.toString()
 
         // Calculate total duration
-        val totalMillis = calculateTotalDuration(category, startDate, endDate)
+      //  val totalMillis = calculateTotalDuration(category, startDate, endDate)
 
         // Format and display the result
-        val formattedTime = formatMillisToHours(totalMillis)
-        val resultText = "Total time spent on $category from $startDate to $endDate: $formattedTime"
-        totalTimeTextView.text = resultText
+       // val formattedTime = formatMillisToHours(totalMillis)
+       // val resultText = "Total time spent on $category from $startDate to $endDate: $formattedTime"
+        //totalTimeTextView.text = resultText
         totalTimeTextView.visibility = View.VISIBLE
     }
 
-    private fun calculateTotalDuration(category: String, startDate: String, endDate: String): Long {
-        val matchingEntries = getMatchingTimesheetEntries(category, startDate, endDate)
-        return calculateTotalDurationMillis(matchingEntries)
+  //  private fun calculateTotalDuration(category: String, startDate: String, endDate: String): Long {
+      //  val matchingEntries = getMatchingTimesheetEntries(category, startDate, endDate)
+       // return calculateTotalDurationMillis(matchingEntries)
     }
 
-    private fun calculateTotalDurationMillis(entries: List<TimesheetEntry>): Long {
+  //  private fun calculateTotalDurationMillis(entries: List<TimesheetEntry>): Long {
         // Calculate the total duration in milliseconds
-        return entries.sumBy { entry ->
-            calculateDurationMillis(entry.startTime, entry.endTime)
-        }
-    }
+      //  return entries.sumBy { entry ->
+    //        calculateDurationMillis(entry.startTime, entry.endTime)
+      //  }
+ //   }
 
-    private fun getMatchingTimesheetEntries(category: String, startDate: String, endDate: String): List<TimesheetEntry> {
+   // private fun getMatchingTimesheetEntries(category: String, startDate: String, endDate: String): List<TimesheetEntry> {
 
-        return TimesheetEntry.filter { entry ->
-            entry.date >= startDate && entry.date <= endDate && entry.category == category
-        }
-    }
+        //return TimesheetEntry.filter { entry ->
+           // entry.date >= startDate && entry.date <= endDate && entry.category == category
+       // }
+   // }
 
     private fun calculateDurationMillis(startTime: List<TimesheetEntry>, endTime: String): Long {
         // Assuming 'startTime' and 'endTime' are in the format "HH:mm AM/PM"
@@ -91,4 +97,6 @@ class Date : AppCompatActivity() {
         val minutes = (millis % (1000 * 60 * 60)) / (1000 * 60)
         return String.format(Locale.getDefault(), "%02d:%02d", hours, minutes)
     }
-}
+
+
+

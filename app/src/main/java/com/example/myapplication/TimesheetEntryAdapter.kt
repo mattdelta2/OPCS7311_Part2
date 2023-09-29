@@ -28,10 +28,10 @@ class TimesheetEntryAdapter(private val entries: List<TimesheetEntry>) :
         val descriptionTextView = holder.itemView.findViewById<TextView>(R.id.descriptionTextView)
         val categoryTextView = holder.itemView.findViewById<TextView>(R.id.categoryTextView)
 
-        dateTextView.text = "Date: ${entry.date}"
-        startTimeTextView.text = "Start Time: ${entry.startTime}"
-        endTimeTextView.text = "End Time: ${entry.endTime}"
-        descriptionTextView.text = "Description: ${entry.description}"
+      //  dateTextView.text = "Date: ${entry.date}"
+       // startTimeTextView.text = "Start Time: ${entry.startTime}"
+     //   endTimeTextView.text = "End Time: ${entry.endTime}"
+       // descriptionTextView.text = "Description: ${entry.description}"
 
 
 

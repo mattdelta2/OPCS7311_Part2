@@ -66,7 +66,7 @@ class MainMenu : AppCompatActivity() {
 
         val dateButton = findViewById<ImageButton>(R.id.btnDate )
 
-        listButton.setOnClickListener()
+        dateButton.setOnClickListener()
         {
             val intent = Intent(this, Date::class.java)
 
