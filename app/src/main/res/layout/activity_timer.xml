@@ -86,8 +86,9 @@
         android:id="@+id/imageView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/emptyfiller1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="581dp" />
+        android:layout_marginBottom="38dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/emptyfiller1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
